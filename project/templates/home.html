@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body {font-family: "Lato", sans-serif}
+body {
+  font-family: "Lato", sans-serif;
+  background-color:   white}
 </style>
 </head>
 <body>
@@ -29,23 +31,40 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">THE GRASS CUTTING MANAGEMENT SYSTEM</h2>
+    <h2 class="w3-wide">GRASS CUTTING MANAGEMENT SYSTEM</h2>
     <br><br>
-    <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p class="w3-justify">A grass cutting management system is a system used to manage and schedule the maintenance of grassy areas, 
+      such as lawns and sports fields. This can include tasks such as mowing, fertilizing, aeration, and irrigation.
+      The system can be used to schedule regular maintenance and track progress, as well as to coordinate communication between different teams or contractors responsible for maintaining the grassy areas. 
+      <br><br><br>
+      Depending on the specific system, 
+      it may also include features such as GPS mapping, weather monitoring, and inventory management for equipment and supplies. Overall, a grass cutting management system can help to improve the efficiency and effectiveness of maintaining grassy areas,
+      resulting in healthier and more attractive lawns and fields.
+      <br><br><br>
+      Farmers and grass cutters may work together to ensure that the grassy areas on a farm are properly maintained. For example, a farmer may hire a grass cutter to regularly mow and trim the grass around farm buildings and equipment,
+      helping to keep the farm looking neat and tidy while also maintaining safety by reducing the risk of fire.
+      <br><br><br>
+      In some cases, farmers may also work with grass cutters to manage grazing land for livestock. The grass cutter can help to maintain the grass at a proper height for grazing animals and to keep the area free of weeds and other unwanted vegetation that can compete with the grass for nutrients.
+      </p>
     <div class="w3-row w3-padding-32">
       <div class="w3-third">
-        <p>Name</p>
-        <img src="#" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+        <br><br><br>
+        <!-- <p>Farmer</p> -->
+        <img src="../static/photos/farmer.jpeg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+        <a href="{{ url_for('flogin')}}" class="w3-bar-item w3-button w3-padding-large w3-hide-small" method="GET">FARMER</a>
       </div>
       <div class="w3-third">
-        <p>Name</p>
-        <img src="#" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
+        <br><br><br>
+        <!-- <p>Name</p> -->
+        <img src="../static/photos/ser.jpeg " class="w3-round" alt="Random Name" style="width:80%; height: 150px;">
+        <br>
+        </div>
+        
       <div class="w3-third">
-        <p>Name</p>
-        <img src="#" class="w3-round" alt="Random Name" style="width:60%">
+        <br><br><br>
+        <!-- <p>Grass Cutter</p> -->
+        <img src="../static/photos/gc3.jpeg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:80%;height: 150px;">
+        <a href="{{ url_for('gclogin')}}" class="w3-bar-item w3-button w3-padding-large w3-hide-small"method="GET">GRASS CUTTER</a>
       </div>
     </div>
   </div>
