@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My App</title>
+  <style>
+    html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 8px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 10px;
+      border-radius: 12px;
+    }
+    </style>
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('gcdashboard') }}" class="button">Data Table</a>
+    <a href="{{ url_for('shop') }}" class="button">Shop</a>
+  </nav>
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

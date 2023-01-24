@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grass_cutter Register Page</title>
+  <link href="../static/css/registerstyle.css" rel="stylesheet">
+</head>
+<body>
+  <h1>GRASS CUTTING MANAGEMENT SYSTEM</h1>
+  <div id="card">
+    <div id="card-content">
+      <div id="card-title">
+        <h2>REGISTER </h2>
+        <div class="underline-title"></div>
+        <h2>GRASS CUTTER</h2>
+        <div class="underline-title"></div>
+        </div>
+        <form 
+          class="form" action="{{ url_for('gcregister')}}" method="POST" >
+          {% if mesage is defined and mesage %}
+			      <div class="choose">{{ mesage }}</div>
+		      {% endif %}
+          <!-- <div class="choose">  
+            PROFESSION :
+            <br><br>
+            <input type="radio" name="PROFESSION" value="grass cutter"> GRASS CUTTER
+            <input type="radio" name="PROFESSION" value="farmer"> FARMER
+          </div> -->
+          <label for="user-name" style="padding-top:13px">
+            &nbsp;Name
+          </label>
+          <input id="user-name" class="form-content" type="text" name="name" autocomplete="on" required />
+          <div class="form-border"></div>
+          <!-- ------------------------------------------------------------ -->
+          <label for="user-address" style="padding-top:13px">
+            &nbsp;Address
+          </label>
+          <input id="user-address" class="form-content" type="text" name="address" autocomplete="on" required />
+          <div class="form-border"></div>
+
+           <!-- ------------------------------------------------------------>
+
+          <label for="user-phone" style="padding-top:13px">
+            &nbsp;Phone Number
+          </label>
+          <input id="user-phone" class="form-content" type="text" name="phone" autocomplete="on" required />
+          <div class="form-border"></div>
+
+          <!-- ------------------------------------------------------------>
+
+          <label for="user-username" style="padding-top:13px">
+            &nbsp;Username
+          </label>
+          <input id="user-username" class="form-content" type="text" name="username" autocomplete="on" required />
+          <div class="form-border"></div>
+
+          <!-- ------------------------------------------------------------>
+
+          <label for="user-password" style="padding-top:22px">&nbsp;Password
+          </label>
+          <input id="user-password" class="form-content" type="password" name="password" required />
+          <div class="form-border"></div>
+
+          <!-- ------------------------------------------------------------>
+          <label for="user-charges" style="padding-top:22px">&nbsp;Sevice Charges
+          </label>
+          <input id="user-charges" class="form-content" type="number" name="charges" required />
+          <div class="form-border"></div>
+
+          <!-- ------------------------------------------------------------>
+          
+          <input id="submit-btn" type="submit" value="REGISTER"  />
+      </form>
+    </div>
+  </div>
+</body>
+</html>
