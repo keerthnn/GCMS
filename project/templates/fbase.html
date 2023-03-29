@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My App</title>
+<style>
+  html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  .button4 {
+    background-color: #0080ff; /* Blue */
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('fdashboard') }}" class="button4">Data Table</a>&emsp;
+    <a href="{{ url_for('land') }}"  class="button4" >Land</a>
+  </nav>
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  border-radius: 12px;
+}
+.button1 {
+  background-color: #08080888; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  border-radius: 12px;
+}
+.button3 {
+  background-color: #f10000; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 12px;
+}
+</style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right"> <a href="{{ url_for('logout') }}" class="button3">Logout</a></span>
+  <span class="w3-bar-item w3-left">FARMER</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <!-- <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px"> -->
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Farmer ID <strong>{{session.fid}}</strong><br> Welcome,  <strong>{{session.username}}</strong></span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container" >
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block" >
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="#Bill" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Booking</a>
+    <a href="#history" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
+  </div>
+</nav>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px;">
+    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  </header>
+
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px ">
+      <div class="w3-twothird" >
+        <h5>Feeds</h5>
+
+        <!-- -------------------------------------------------------------------------------------------------->
+
+        {% extends 'fbase.html' %}
+        {% block content %}
+        <br><br>
+        <!-- ---------------------------------Land Details------------------------------------------------->
+
+        <table class="w3-table w3-white">
+          <thead>
+          <tr >
+            <a class="button1" style="font-weight: bold;" id="Land"> <h>Land Details</h></a>
+            &emsp;<a class="button4" href="{{ url_for('details')}}" style="font-weight: bold;" id="Land_details"> <h>Land Type</h></a>
+            <br><br>
+            <th>Survey number</th>
+            <th>Area</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in land %}
+
+          <tr>
+            <td>&ensp;{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            
+          </tr>
+          {% endfor  %}
+        </tbody>
+        </table>
+        <br><br>
+
+        <!-- ---------------------------------Land Details------------------------------------------------->
+
+        <table class="w3-table w3-white">
+          <thead>
+          <tr >
+            <a class="button1" style="font-weight: bold;" id="Land"> <h>Land Type</h></a>
+            <br><br>
+            <th>Survey number</th>
+            <th>Type</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in details %}
+
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[2] }}</td>
+            
+          </tr>
+          {% endfor  %}
+        </tbody>
+        </table>
+        <br><br>
+
+
+        <!-- -------------------------------Grass Cutter Details---------------------------------------------->
+
+        <table class="w3-table w3-white">
+          <thead>
+            <tr >
+              <a class="button1" style="font-weight: bold;"> <h>Grass Cutter Details</h></a>
+              <br><br>
+              <th>Gid</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Service Charge</th>
+              <th>Book</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+          {% for row in data %}
+            <tr>
+              <td>&ensp;{{ row[0] }}</td>
+              <td>{{ row[1] }}</td>
+              <td>{{ row[2] }}</td>
+              <td>{{ row[3] }}</td>
+              <td>{{ row[6] }}</td>
+              <td><a href="{{ url_for('booking')}}" class="button">Book</a></td>
+            </tr>
+          {% endfor  %}
+          </tbody>
+        </table>
+        <!-- ------------------------------------Cancel Booking---------------------------------------->
+        <br><br>
+        <table class="w3-table w3-white">
+          <thead>
+          <tr>
+            <a class="button1" style="font-weight: bold;" id="billing"> <h>Cancel Booking</h></a>
+              <br><br>
+            <th>Book id</th>
+            <th>Fid</th>
+            <th>Farmer Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Gid</th>
+            <th>Status</th>
+            <th>Cancel Booking</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in available %}
+
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>Booked</td>
+            <td><a href="{{ url_for('delete')}}" class="button1 w3-red">Cancel</a></td>
+            
+          </tr>
+          {% endfor  %}
+        </tbody>
+        </table>
+
+        <!-- -------------------------------BILLING DETAILS -------------------------------------------->
+        <br><br>
+        <table class="w3-table w3-white">
+          <thead>
+          <tr >
+            <a class="button1" style="font-weight: bold;" id="Bill"> <h>Bill</h></a>
+            <br><br>
+            <th>Bill ID</th>
+            <th>Fid</th>
+            <th>Farmer Name</th>
+            <th>Gid</th>
+            <th>Grass Cutter Name</th>
+            <th>Total Charge</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in result %}
+
+          <tr>
+            <td>{{ row[0 ] }}</td>
+            <td>&ensp;{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>&emsp;{{ row[4] }}</td>
+            <td>&emsp;{{ row[5] }}</td>
+            
+          </tr>
+          {% endfor  %}
+        </tbody>
+        </table>
+
+        <!-- -------------------------------Previous Booking Details-------------------------------------------->
+
+        <br><br>
+        <table class="w3-table w3-white">
+          <thead>
+          <tr >
+            <a class="button1" style="font-weight: bold;" id="history"> <h>Previous Booking Details</h></a>
+            <br><br>
+            <th>Gid</th>
+            <th>Grass Cutter Name</th>
+            <th>Total Charge</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in result %}
+
+          <tr>
+
+
+            <td>{{ row[3] }}</td>
+            <td>&emsp;{{ row[4] }}</td>
+            <td>&emsp;{{ row[5] }}</td>
+            
+          </tr>
+          {% endfor  %}
+        </tbody>
+        </table>
+
+        
+
+        <!-- -------------------------------------printing land details------------------------------------------>
+        <!-- <br><br>
+        <table class="w3-table w3-white">
+          <thead>
+          <tr >
+            <a class="button1" style="font-weight: bold;" id="history"> <h>land Type Details</h></a>
+            <br><br>
+            <th>Survey number</th>
+            <th>Land Type</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in land %}
+
+          <tr>
+
+
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            
+          </tr>
+          {% endfor  %}
+        </tbody>
+        </table> -->
+
+        <!-- ---------------------------------------------------------------------------------->
+        <br><br>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- -------------------------------------------------------------------------------------------------->
+
+  <!-- -------------------------------------------------------------------------------------------------->
+
+
+  <hr>
+
+ 
+  <br>
+ 
+</div>
+
+
+</body>
+</html>

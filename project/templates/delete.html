@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELETE</title>
+    <link href="../static/css/booking.css" rel="stylesheet">
+</head>
+<body>
+    <div id="card">
+        <div id="card-content">
+          <div id="card-title">
+            <h2>CANCEL BOOKING </h2>
+            <div class="underline-title"></div>
+            </div>
+
+            <!-- ------------------------------------------------------------>
+
+            <form 
+              class="form" action="{{ url_for('delete')}}" method="POST" >
+              {% if mesage is defined and mesage %}
+                      <div class="choose">{{ mesage }}</div>
+                  {% endif %}
+
+                <!-- ------------------------------------------------------------>
+              <label for="user-bid" style="padding-top:13px">
+                &nbsp;Book ID
+              </label>
+              <input id="user-bid" class="form-content" type="text" name="bid" autocomplete="on" required />
+              <div class="form-border"></div>
+
+              <!-- ------------------------------------------------------------>
+              <label for="user-fid" style="padding-top:13px">
+                &nbsp;Farmer ID
+              </label>
+              <input id="user-fid" class="form-content" type="text" name="fid" autocomplete="on" required />
+              <div class="form-border"></div>
+    
+              <!-- ------------------------------------------------------------>
+
+              <label for="user-fname" style="padding-top:13px">
+                &nbsp;Farmer Name
+              </label>
+              <input id="user-fname" class="form-content" type="text" name="fname" autocomplete="on" required />
+              <div class="form-border"></div>
+    
+              <!-- ------------------------------------------------------------>
+    
+              <!-- <label for="user-address" style="padding-top:13px">
+                &nbsp;Address
+              </label>
+              <input id="user-address" class="form-content" type="text" name="address" autocomplete="on" required />
+              <div class="form-border"></div> -->
+    
+              <!-- ------------------------------------------------------------>
+              <!-- <label for="user-phone" style="padding-top:13px">
+                &nbsp;Phone Number
+              </label>
+              <input id="user-phone" class="form-content" type="text" name="phone" autocomplete="on" required />
+              <div class="form-border"></div>
+     -->
+              <!-- ------------------------------------------------------------>
+    
+              <label for="user-gid" style="padding-top:13px">
+                &nbsp;Grass Cutter ID
+              </label>
+              <input id="user-gid" class="form-content" type="text" name="gid" autocomplete="on" required />
+              <div class="form-border"></div>
+    
+              <!-- ------------------------------------------------------------>
+    
+    
+              <input id="submit-btn" type="submit" value="Cancel Booking"  />
+          </form>
+        </div>
+      </div>
+</body>
+</html>

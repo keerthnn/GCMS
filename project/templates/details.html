@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land</title>
+    <link href="../static/css/details.css" rel="stylesheet">
+</head>
+<body>
+    <div id="card">
+        <div id="card-content">
+          <div id="card-title">
+            <h2>Land Details Update</h2>
+            <div class="underline-title"></div>
+            </div>
+            <form 
+              class="form" action="{{ url_for('details')}}" method="POST" >
+              {% if mesage is defined and mesage %}
+                      <div class="choose">{{ mesage }}</div>
+                  {% endif %}
+              <!-- ------------------------------------------------------------>
+    
+              <label for="user-srvy_no " style="padding-top:13px">
+                &nbsp;Survey Number
+              </label>
+              <input id="user-srvy_no " class="form-content" type="text" name="srvy_no " autocomplete="on" required />
+              <div class="form-border"></div>
+
+
+              <!-- ------------------------------------------------------------>
+    
+              <label for="user-fid" style="padding-top:13px">
+                &nbsp;Farmer ID
+              </label>
+              <input id="user-fid" class="form-content" type="text" name="fid" autocomplete="on" required />
+              <div class="form-border"></div>
+    
+              <!-- ------------------------------------------------------------>
+    
+              <label for="user-land_type" style="padding-top:13px">
+                &nbsp;Types of land
+              </label>
+              <br>
+              <select id="type" name="land_type">
+                <option value="Wet land">Wet land</option>
+                <option value="Dry Land">Dry Land</option>
+              </select>
+    
+           
+              <!-- ------------------------------------------------------------>
+    
+              <input id="submit-btn" type="submit" value="Enter"  />
+          </form>
+        </div>
+      </div>
+</body>
+</html>
